@@ -1,0 +1,55 @@
+{
+  "name": "variable-gpt",
+  "displayName": "Variable GPT",
+  "description": "The \"VariableGPT\" extension for Visual Studio Code revolutionizes the way developers name variables in their code. This AI-powered tool seamlessly integrates with the VS Code environment to offer intelligent, context-aware suggestions for variable names. ",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "variable-gpt.getVariableName",
+        "title": "Get Variable Name"
+      }
+    ],
+    "configuration": {
+      "title": "Variable GPT",
+      "properties": {
+        "variable-gpt.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Open AI API key"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.3",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.84.0",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "@vscode/test-electron": "^2.3.6",
+    "eslint": "^8.52.0",
+    "glob": "^10.3.10",
+    "mocha": "^10.2.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "openai": "^4.20.0"
+  }
+}
